@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+{% block content%}
+<h3>{{ msg }}</h3>
+<p>Comment:{{expense.comment}}</p>
+<p>datetime:{{expense.datetime}}</p>
+<p>amount:{{expense.amount}}</p>
+<p>user:{{expense.user}}</p>
+<form method="post"> 
+	{% csrf_token %}
+	{{ split_form.as_table}}
+	<input type="submit" name="" value="Split">
+</form>
+{% endblock%}

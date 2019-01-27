@@ -1,0 +1,26 @@
+{% extends "base.html"%}
+{% block content%}
+<a href="/expense_create/"> Create an Expense</a>
+<h2>expenses</h2>
+<table border=2>
+	<tr>
+		<th>comment</th>
+		<th>datetime</th>
+		<th>amount</th>
+		<th>user</th>
+		<th>Operations</th>
+	</tr>
+	{% for object in object_list%}
+		<tr>
+			<td>{{ object.comment }}</td>
+			<td>{{ object.datetime }}</td>
+			<td>{{ object.amount }}</td>
+			<td>{{ object.user.name }}</td>
+			<td><a href="/expense_update/{{object.id}}/">Update</a>
+				<a href="/expense_delete/{{object.id}}/">Delete</a>
+				<a href="/expense_split/{{ object.id }}">Split</a>
+			</td>
+		</tr>
+	{% endfor %}
+</table>
+{% endblock %}

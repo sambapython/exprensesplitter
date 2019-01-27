@@ -1,0 +1,19 @@
+{% extends "base.html"%}
+{% block content%}
+<a href="/categery_create/"> Create a member</a>
+<h2>Categeries</h2>
+<table border=2>
+	<tr>
+		<th>Name</th>
+		<th>Operations</th>
+	</tr>
+	{% for object in object_list%}
+		<tr>
+			<td>{{ object.name }}</td>
+			<td><a href="/categery_update/{{object.id}}/">Update</a>
+				<a href="/categery_delete/{{object.id}}/">Delete</a>
+			</td>
+		</tr>
+	{% endfor %}
+</table>
+{% endblock %}

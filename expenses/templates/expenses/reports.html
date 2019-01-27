@@ -1,0 +1,32 @@
+{% extends "base.html"%}
+
+{% block content %}
+<form method="post">
+	{% csrf_token%}
+	{{ search_form.as_p }}
+	<input type="submit" name="">
+</form>
+<h2>expenses</h2>
+<table border=2>
+	<tr>
+		<th>comment</th>
+		<th>datetime</th>
+		<th>amount</th>
+		<th>user</th>
+	</tr>
+	{% for object in object_list%}
+		<tr>
+			<td>{{ object.comment }}</td>
+			<td>{{ object.datetime }}</td>
+			<td>{{ object.amount }}</td>
+			<td>{{ object.user.name }}</td>
+			
+		</tr>
+	{% endfor %}
+	<tr>
+			<td></td>
+			<td></td>
+			<td>{{ exp_sum }}</td>
+		</tr>
+</table>
+{% endblock %}
